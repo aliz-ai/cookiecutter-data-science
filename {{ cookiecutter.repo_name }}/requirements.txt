@@ -15,6 +15,7 @@ google-cloud-storage
 google-cloud-bigquery
 google-cloud-datastore
 google-cloud-logging
+pandas-gbq
 
 {% if cookiecutter.python_interpreter != 'python3' %}
 
