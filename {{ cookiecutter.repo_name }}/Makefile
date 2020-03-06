@@ -9,6 +9,7 @@ BUCKET = {{ cookiecutter.gcs_bucket }}
 PROFILE = {{ cookiecutter.gcp_project }}
 PROJECT_NAME = {{ cookiecutter.repo_name }}
 PYTHON_INTERPRETER = {{ cookiecutter.python_interpreter }}
+PYTHON_VERSION = {{ cookiecutter.python_version }}
 
 ifeq (,$(shell which conda))
 HAS_CONDA=False
@@ -53,7 +54,7 @@ create_environment:
 ifeq (True,$(HAS_CONDA))
 		@echo ">>> Detected conda, creating conda environment."
 ifeq (3,$(findstring 3,$(PYTHON_INTERPRETER)))
-	conda create --name $(PROJECT_NAME) python=3
+	conda create --name $(PROJECT_NAME) python=$(PYTHON_VERSION)
 else
 	conda create --name $(PROJECT_NAME) python=2.7
 endif
